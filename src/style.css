@@ -1,0 +1,13 @@
+html, body {
+    margin: 0; padding: 0;
+    -webkit-text-size-adjust : 100%;
+}
+
+#map {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #373B44;
+    background: -webkit-linear-gradient(to right, #4286f4, #373B44);
+    background: linear-gradient(to right, #4286f4, #373B44);
+}
