@@ -11,3 +11,12 @@ html, body {
     background: -webkit-linear-gradient(to right, #4286f4, #373B44);
     background: linear-gradient(to right, #4286f4, #373B44);
 }
+
+h3 {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    line-height: 1.5;
+    margin: 0;
+    color:#333; font-size: 24px; font-weight: bold; font-family: Helvetica, "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
+}
