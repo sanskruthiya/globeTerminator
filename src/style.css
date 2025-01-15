@@ -15,8 +15,17 @@ html, body {
 h3 {
     display: flex;
     align-items: center;
+    justify-content: center;
     text-align: center;
     line-height: 1.5;
-    margin: 0;
-    color:#333; font-size: 24px; font-weight: bold; font-family: Helvetica, "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
+    margin: 10px 0;
+    padding: 10px;
+    color: #373B44;
+    font-size: 28px;
+    font-weight: 600;
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: linear-gradient(90deg, #eee, #cfdef3);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
 }

@@ -123,9 +123,9 @@ map.on("click", (e) => {
       const areaName = features[0].properties.places;
       const timeZone = features[0].properties.time_zone;
 
-      new maplibregl.Popup()
+      new maplibregl.Popup({closeButton:true, focusAfterOpen:false, className:'t-popup', minWidth:'210px',maxWidth:'210px', anchor:'bottom'})
           .setLngLat(e.lngLat)
-          .setHTML(`<h3 id="currentTime">${currentTime}</h3><strong>Area:</strong> ${areaName}<br><strong>Timezone:</strong> ${timeZone}`)
+          .setHTML(`<h3 id="currentTime">${currentTime}</h3><strong>Region:</strong> ${areaName}<br><strong>Timezone:</strong> ${timeZone}`)
           .addTo(map);
   } else {
       new maplibregl.Popup()
