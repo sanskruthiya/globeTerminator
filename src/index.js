@@ -18,6 +18,8 @@ const map = new maplibregl.Map({
     center: init_center,
     interactive: true,
     zoom: init_zoom,
+    minZoom: 1,
+    maxZoom: 10,
     bearing: init_bearing,
     pitch: init_pitch,
     attributionControl: false,
@@ -71,9 +73,46 @@ map.on('load', () => {
         'fill-outline-color': "#999",
       }
     });
+    
+    map.addLayer({
+      'id': "timezone-line-layer",
+      'type': "line",
+      'source': "timezone",
+      'source-layer': 'timezone',
+      'layout': {
+            'visibility': 'visible',
+            'line-join': 'bevel',
+            'line-cap': 'butt'
+      },
+      'paint': {
+            'line-color': '#fff',
+            'line-opacity': ['interpolate',['linear'],['zoom'],0,1,3,1,5,0],
+            'line-blur': 2,
+            'line-width': 1.5
+      }
+    });
+
+    map.setSky({
+      'atmosphere-blend': [
+                    'interpolate',
+                    ['linear'],
+                    ['zoom'],
+                    0, 0.6,
+                    5, 0.6,
+                    7, 0
+                ]
+    });
+    map.setLight({
+      'anchor': 'viewport',
+      'color': "white", 
+      'intensity': 0.1,
+      'position': [1.15,270,30]
+    });
 });
 
 map.on("click", (e) => {
+  map.panTo(e.lngLat,{duration:1000});
+
   const features = map.queryRenderedFeatures(e.point, {
       layers: ["timezone-layer"]
   });
